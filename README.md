@@ -12,6 +12,9 @@ geohash是一个用于转换经纬度和geohash的php扩展。
 - php5.x
 - php7.x
 
+## from
+- [geohash](https://github.com/taogogo/geohash-php-extention)
+
 
 ## Install:
 ```shell
@@ -52,7 +55,7 @@ wm3yr31d2524
 ```
 
 ##contact
-e-mail: love(a)taogogo.info
+here
 
 ##docs
 
