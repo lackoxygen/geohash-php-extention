@@ -8,6 +8,11 @@ geohash是一个用于转换经纬度和geohash的php扩展。
 
 相似的代码，使用扩展进行转换的速度比使用纯php代码快10倍以上。
 
+## support
+- php5.x
+- php7.x
+
+
 ## Install:
 ```shell
 phpize

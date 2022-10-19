@@ -36,6 +36,8 @@ extern zend_module_entry geohash_module_entry;
 #include "TSRM.h"
 #endif
 
+#define GEOHASH_VERSION "0.2"
+
 PHP_MINIT_FUNCTION(geohash);
 PHP_MSHUTDOWN_FUNCTION(geohash);
 PHP_RINIT_FUNCTION(geohash);
