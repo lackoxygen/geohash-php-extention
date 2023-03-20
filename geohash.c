@@ -39,12 +39,20 @@ ZEND_DECLARE_MODULE_GLOBALS(geohash)
 /* True global resources - no need for thread safety here */
 static int le_geohash;
 
-/* {{{ geohash_methods[]
+/* {{{ geohash_class_methods[]
  */
-const zend_function_entry geohash_methods[] = {
+const zend_function_entry geohash_class_methods[] = {
 	PHP_ME(Geohash, decode, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
 	PHP_ME(Geohash, encode, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_STATIC)
-	PHP_FE_END	/* Must be the last line in geohash_methods[] */
+	PHP_FE_END	/* Must be the last line in geohash_class_methods[] */
+};
+/* }}} */
+
+/* {{{ geohash_functions[]
+ */
+static const zend_function_entry example_functions[] = {
+
+        PHP_FE_END
 };
 /* }}} */
 
@@ -55,7 +63,7 @@ zend_module_entry geohash_module_entry = {
 	STANDARD_MODULE_HEADER,
 #endif
 	"Geohash",
-	geohash_methods,
+    example_functions,
 	PHP_MINIT(geohash),
 	PHP_MSHUTDOWN(geohash),
 	PHP_RINIT(geohash),		/* Replace with NULL if there's nothing to do at request start */
@@ -81,7 +89,7 @@ PHP_MINIT_FUNCTION(geohash)
     REGISTER_STRING_CONSTANT("GEOHASH_VERSION", GEOHASH_VERSION, CONST_CS | CONST_PERSISTENT);
     //REGISTER_INI_ENTRIES();
 	zend_class_entry Geohash_entry;
-	INIT_CLASS_ENTRY(Geohash_entry, "Geohash", geohash_methods);
+	INIT_CLASS_ENTRY(Geohash_entry, "Geohash", geohash_class_methods);
 #if PHP_MAJOR_VERSION < 7
 Geohash_ce = zend_register_internal_class_ex(&Geohash_entry, NULL, NULL TSRMLS_CC);//注册类
 #else
